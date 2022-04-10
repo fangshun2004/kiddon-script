@@ -24,9 +24,8 @@ local function fixerpstat_bool_unlock(value,mpx)--32283-32411
 end
 menu.add_action("FIXERPSTAT_BOOL 解锁联系人DLC物品",function()--联系人dlc
 	fixerpstat_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL2",false,33)--联系人dlc 重新观看事务所动画
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL2",false,34)--联系人dlc 重新观看事务所任务电话触发动画
-	
+	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,30)--联系人dlc 重新观看事务所动画
+	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,31)--联系人dlc 重新观看事务所任务电话触发动画
 end
 )
 
@@ -114,8 +113,8 @@ local function casinopstat_bool_unlock(value,mpx)--26810-27258
 end
 menu.add_action("CASINOPSTAT_BOOL 钻石赌场DLC物品",function() --钻石赌场
 	casinopstat_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL2",false,28)--重新观看賭場動畫
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL5",false,51)--重新观看赌场2楼動畫
+	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL4",false,23)--重新观看賭場動畫
+	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL6",false,51)--重新观看赌场2楼動畫
 
 end
 )
@@ -313,11 +312,11 @@ menu.add_action("Re-watch the dlc animation 重新观看动画",function()
 	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,46)--重新观看竞技场动画1 arena1
 	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,47)--重新观看竞技场动画2 arena2
 	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,48)--重新观看竞技场动画2 arena3
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL2",false,28)--重新观看賭場動畫 casino
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL5",false,51)--重新观看赌场2楼動畫 Casino 2nd floor platform
+	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL4",false,23)--重新观看賭場動畫
+	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL6",false,51)--重新观看赌场2楼動畫
 	stats.set_bool_masked(mpx.."TUNERPSTAT_BOOL0",false,30)--重新观看车友会动画 Riders' clubs
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL2",false,33)--联系人dlc 重新观看事务所动画 Contact DLC
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL2",false,34)--联系人dlc 重新观看事务所任务电话触发动画  Contact DLC
+	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,30)--联系人dlc 重新观看事务所动画 28256
+	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,31)--联系人dlc 重新观看事务所任务电话触发动画 28257
 end
 )
 
