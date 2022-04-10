@@ -24,8 +24,8 @@ local function fixerpstat_bool_unlock(value,mpx)--32283-32411
 end
 menu.add_action("FIXERPSTAT_BOOL--Contact DLC",function()--Contact dlcdlc
 	fixerpstat_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL2",false,33)--Contact dlc Re-watch the animation
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL2",false,34)--Contact dlc Re-watch the animation2
+	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,30)--Contact dlc Re-watch the animation
+	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,31)--Contact dlc Re-watch the animation2
 	
 end
 )
@@ -63,7 +63,7 @@ local function su20tattoostat_bool_unlock(value,mpx) --30227-30355
 		end
 	end
 end
-menu.add_action("SU20TATTOOSTAT_BOOL--Summer updates",function()--夏季更新
+menu.add_action("SU20TATTOOSTAT_BOOL--Summer updates",function()
 	su20tattoostat_bool_unlock(true,mpx)
 end
 )
@@ -114,8 +114,8 @@ local function casinopstat_bool_unlock(value,mpx)--26810-27258
 end
 menu.add_action("CASINOPSTAT_BOOL--Diamond Casino",function() --Diamond Casino
 	casinopstat_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL2",false,28)--Re-watch casino animations
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL5",false,51)--Re-watch the casino 2nd floor animation
+	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL4",false,23)--Re-watch casino animations
+	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL6",false,51)--Re-watch the casino 2nd floor animation
 
 end
 )
@@ -313,11 +313,11 @@ menu.add_action("Re-watch the dlc animation ",function()
 	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,46)--arena1
 	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,47)-- arena2
 	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,48)-- arena3
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL2",false,28)-- casino
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL5",false,51)--Casino 2nd floor platform
+	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL4",false,23)--Re-watch casino animations
+	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL6",false,51)--Re-watch the casino 2nd floor animation
 	stats.set_bool_masked(mpx.."TUNERPSTAT_BOOL0",false,30)--Re-watch the tuner animation 
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL2",false,33)--Re-watch the studio task cutscene Contact DLC
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL2",false,34)--Re-watch the studio task cutscene  Contact DLC
+	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,30)--Re-watch the studio task cutscene Contact DLC
+	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,31)--Re-watch the studio task cutscene  Contact DLC
 end
 )
 
@@ -327,16 +327,16 @@ end
 )
 
 menu.add_action("TERBYTE Wholesale price",function()
-if (stats.get_masked_int(mpx.."BUSINESSBATPSTAT_INT379", 0, 8) < 5) then
-stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT379", 5, 0, 8)--TERBYTE Wholesale price
-end
+	if (stats.get_masked_int(mpx.."BUSINESSBATPSTAT_INT379", 0, 8) < 5) then
+		stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT379", 5, 0, 8)--TERBYTE Wholesale price
+	end
 end
 )
 
 menu.add_action("Gold Business Battle Trophy",function()
-if (stats.get_masked_int(mpx.."BUSINESSBATPSTAT_INT380", 0, 8) <20) then
-	stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT380", 20, 0, 8)--Gold Business Battle Trophy
-end
+	if (stats.get_masked_int(mpx.."BUSINESSBATPSTAT_INT380", 0, 8) <20) then
+		stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT380", 20, 0, 8)--Gold Business Battle Trophy
+	end
 end
 )
 
@@ -361,21 +361,21 @@ menu.add_action("Facility maintenance area decorations",function()
 )
 
 menu.add_action("Unlocking the double-action revolver *** needs to be used again by swapping occupancy",function()
-if (stats.get_masked_int(mpx.."GANGOPSPSTAT_INT102", 24, 8)<3) then
-	stats.set_masked_int(mpx.."GANGOPSPSTAT_INT102", 3, 24, 8)--Skip to the final mission stage
-end
-if (stats.get_masked_int(mpx.."GANGOPSPSTAT_INT102", 24, 8) > 3) then
-	stats.set_masked_int(mpx.."GANGOPSPSTAT_INT102", 0, 24, 8)--Task progress reset
-end
+	if (stats.get_masked_int(mpx.."GANGOPSPSTAT_INT102", 24, 8)<3) then
+		stats.set_masked_int(mpx.."GANGOPSPSTAT_INT102", 3, 24, 8)--Skip to the final mission stage
+	end
+	if (stats.get_masked_int(mpx.."GANGOPSPSTAT_INT102", 24, 8) > 3) then
+		stats.set_masked_int(mpx.."GANGOPSPSTAT_INT102", 0, 24, 8)--Task progress reset
+	end
 end
 )
 
 menu.add_action("Unlocking the Stone Axe *** requires a change of occupation to use again",function()
-if (stats.get_masked_int("MP_NGDLCPSTAT_INT0", 16, 8)<5)then
+	if (stats.get_masked_int("MP_NGDLCPSTAT_INT0", 16, 8)<5)then
 		stats.set_masked_int("MP_NGDLCPSTAT_INT0", 5, 16, 8)--Skip to the final mission stage
-end
-if (stats.get_masked_int("MP_NGDLCPSTAT_INT0", 16, 8)>5)then
-	stats.set_masked_int("MP_NGDLCPSTAT_INT0", 0, 16, 8) --Task progress reset
-end	
+	end
+	if (stats.get_masked_int("MP_NGDLCPSTAT_INT0", 16, 8)>5)then
+		stats.set_masked_int("MP_NGDLCPSTAT_INT0", 0, 16, 8) --Task progress reset
+	end	
 end
 )
