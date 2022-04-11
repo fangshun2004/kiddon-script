@@ -274,12 +274,11 @@ menu.add_action("TUPSTAT_BOOL",function()
 end
 )
 local function mp_tupstat_bool_unlock(value,mpx)--2919-3111	
-        for i=0,2 do
-	for index=0,63 do
+        for i=0,2 do	
+		for index=0,63 do
 			stats.set_bool_masked("MP_TUPSTAT_BOOL"..i,value,index)
 		end
-	end
-		
+	end		
 end
 menu.add_action("MP_TUPSTAT_BOOL",function()
 	mp_tupstat_bool_unlock(true,mpx)
