@@ -1,5 +1,5 @@
-﻿PlayerIndex = stats.get_int("MPPLY_LAST_MP_CHAR")
-if PlayerIndex == 0 then
+
+if stats.get_int("MPPLY_LAST_MP_CHAR") == 0 then
 mpx = "MP0_"
 else
 mpx = "MP1_"
@@ -23,10 +23,7 @@ local function fixerpstat_bool_unlock(value,mpx)--32283-32411
 	end
 end
 menu.add_action("FIXERPSTAT_BOOL--Contact DLC",function()--Contact dlcdlc
-	fixerpstat_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,30)--Contact dlc Re-watch the animation
-	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,31)--Contact dlc Re-watch the animation2
-	
+	fixerpstat_bool_unlock(true,mpx)	
 end
 )
 
@@ -39,7 +36,6 @@ local function tunerpstal_bool_unlock(value,mpx) --31707-32283
 end
 menu.add_action("TUNERPSTAT_BOOL--Riders' clubs",function()
 	tunerpstal_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."TUNERPSTAT_BOOL0",false,30)--Re-watch the animation
 end
 )
 
@@ -94,7 +90,7 @@ end
 
 
 local function casinohstpstat_bool_unlock(value,mpx)--28098-28354
-	for i=0,4 do
+	for i=0,3 do
 		for index=0,63 do
 			stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL"..i,value,index)
 		end
@@ -129,14 +125,11 @@ local function arenawarspstat_bool_unlock(value,mpx)--24962-25538
 end
 menu.add_action("ARENAWARSPSTAT_BOOL--Arena",function() --arena
 	arenawarspstat_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,46)--Re-watch the dlc animation1
-	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,47)--Re-watch the dlc animation2
-	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,48)--Re-watch the dlc animation3
 end
 )
 
 local function businessbatpstat_bool_unlock(value,mpx)--22066-22194
-	for i=0,2 do
+	for i=0,1 do
 		for index=0,63 do
 			stats.set_bool_masked(mpx.."BUSINESSBATPSTAT_BOOL"..i,value,index)
 		end
@@ -217,13 +210,13 @@ menu.add_action("NGDLCPSTAT_BOOL",function()
 end
 )
 
-local function mp_ngdlcpstat_bool_unlock(value,mpx)--7321-7385
+local function mp_ngdlcpstat_bool_unlock(value)--7321-7385
 	for index=0,63 do
 			stats.set_bool_masked("MP_NGDLCPSTAT_BOOL0",value,index)
 	end
 end
 menu.add_action("MP_NGDLCPSTAT_BOOL",function()
-	mp_ngdlcpstat_bool_unlock(true,mpx)
+	mp_ngdlcpstat_bool_unlock(true)
 end
 )
 
@@ -241,17 +234,17 @@ end
 )
 
 
-local function mp_ngpstat_bool_unlock(value,mpx)--4335-4399
+local function mp_ngpstat_bool_unlock(value)--4335-4399
 	for index=0,63 do
 			stats.set_bool_masked("MP_NGPSTAT_BOOL0",value,index)
 	end
 end
 menu.add_action("MP_NGPSTAT_BOOL",function()
-	mp_ngpstat_bool_unlock(true,mpx)
+	mp_ngpstat_bool_unlock(true)
 end
 )
 local function ngpstat_bool_unlock(value,mpx)--4207-4335
-	for i=0,2 do
+	for i=0,1 do
 		for index=0,63 do
 			stats.set_bool_masked(mpx.."NGPSTAT_BOOL"..i,value,index)
 		end
@@ -274,7 +267,7 @@ menu.add_action("TUPSTAT_BOOL",function()
 	tupstat_bool_unlock(true,mpx)
 end
 )
-local function mp_tupstat_bool_unlock(value,mpx)--2919-3111
+local function mp_tupstat_bool_unlock(value)--2919-3111
 	for i=0,2 do
 		for index=0,63 do
 			stats.set_bool_masked("MP_TUPSTAT_BOOL"..i,value,index)
@@ -282,11 +275,11 @@ local function mp_tupstat_bool_unlock(value,mpx)--2919-3111
 	end	
 end
 menu.add_action("MP_TUPSTAT_BOOL",function()
-	mp_tupstat_bool_unlock(true,mpx)
+	mp_tupstat_bool_unlock(true)
 end
 )
 
-local function mp_pstat_bool(value,mpx)
+local function mp_pstat_bool(value)
 	for i=0,2 do
 		for index=0,63 do
 			stats.set_bool_masked("MP_PSTAT_BOOL"..i,value,index)
@@ -294,7 +287,7 @@ local function mp_pstat_bool(value,mpx)
 	end
 end
 menu.add_action("MP_PSTAT_BOOL",function()--513-705
-	mp_pstat_bool(true,mpx)
+	mp_pstat_bool(true)
 end
 )
 local function pstat_bool(value,mpx)
