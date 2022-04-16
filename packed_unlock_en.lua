@@ -1,4 +1,3 @@
-
 if stats.get_int("MPPLY_LAST_MP_CHAR") == 0 then
 mpx = "MP0_"
 else
