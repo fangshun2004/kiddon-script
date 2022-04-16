@@ -1,5 +1,4 @@
-﻿PlayerIndex = stats.get_int("MPPLY_LAST_MP_CHAR")
-if PlayerIndex == 0 then
+if stats.get_int("MPPLY_LAST_MP_CHAR") == 0 then
 mpx = "MP0_"
 else
 mpx = "MP1_"
@@ -24,8 +23,6 @@ local function fixerpstat_bool_unlock(value,mpx)--32283-32411
 end
 menu.add_action("FIXERPSTAT_BOOL 解锁联系人DLC物品",function()--联系人dlc
 	fixerpstat_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,30)--联系人dlc 重新观看事务所动画
-	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,31)--联系人dlc 重新观看事务所任务电话触发动画
 end
 )
 
@@ -38,7 +35,6 @@ local function tunerpstal_bool_unlock(value,mpx) --31707-32283
 end
 menu.add_action("TUNERPSTAT_BOOL 解锁车友会DLC物品",function()
 	tunerpstal_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."TUNERPSTAT_BOOL0",false,30)--重新观看车友会动画
 end
 )
 
@@ -79,21 +75,21 @@ menu.add_action("SU20PSTAT_BOOL夏季更新",function()--夏季更新
 end
 )
 
-local function heist3tattoostat_bool_unlock(value,mpx) --28355-28483--dc抢劫
+local function heist3tattoostat_bool_unlock(value,mpx) --28355-28483
 	for i=0,1 do
 		for index=0,63 do
 			stats.set_bool_masked(mpx.."HEIST3TATTOOSTAT_BOOL"..i,value,index)
 		end
 	end
 end
-menu.add_action("HEIST3TATTOOSTAT_BOOL 赌场抢劫DLC物品",function()
+menu.add_action("HEIST3TATTOOSTAT_BOOL 赌场抢劫DLC物品",function()--dc抢劫
 	heist3tattoostat_bool_unlock(true,mpx)
 end
 )
 
 
 local function casinohstpstat_bool_unlock(value,mpx)--28098-28354
-	for i=0,4 do
+	for i=0,3 do
 		for index=0,63 do
 			stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL"..i,value,index)
 		end
@@ -113,9 +109,6 @@ local function casinopstat_bool_unlock(value,mpx)--26810-27258
 end
 menu.add_action("CASINOPSTAT_BOOL 钻石赌场DLC物品",function() --钻石赌场
 	casinopstat_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL4",false,23)--重新观看賭場動畫
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL6",false,51)--重新观看赌场2楼動畫
-
 end
 )
 
@@ -128,14 +121,11 @@ local function arenawarspstat_bool_unlock(value,mpx)--24962-25538
 end
 menu.add_action("ARENAWARSPSTAT_BOOL 竞技场DLC物品",function() --竞技场
 	arenawarspstat_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,46)--重新观看竞技场动画1
-	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,47)--重新观看竞技场动画2
-	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,48)--重新观看竞技场动画2
 end
 )
 
 local function businessbatpstat_bool_unlock(value,mpx)--22066-22194
-	for i=0,2 do
+	for i=0,1 do
 		for index=0,63 do
 			stats.set_bool_masked(mpx.."BUSINESSBATPSTAT_BOOL"..i,value,index)
 		end
@@ -216,13 +206,13 @@ menu.add_action("NGDLCPSTAT_BOOL",function()
 end
 )
 
-local function mp_ngdlcpstat_bool_unlock(value,mpx)--7321-7385
+local function mp_ngdlcpstat_bool_unlock(value)--7321-7385
 	for index=0,63 do
 			stats.set_bool_masked("MP_NGDLCPSTAT_BOOL0",value,index)
 	end
 end
 menu.add_action("MP_NGDLCPSTAT_BOOL",function()
-	mp_ngdlcpstat_bool_unlock(true,mpx)
+	mp_ngdlcpstat_bool_unlock(true)
 end
 )
 
@@ -240,17 +230,17 @@ end
 )
 
 
-local function mp_ngpstat_bool_unlock(value,mpx)--4335-4399
+local function mp_ngpstat_bool_unlock(value)--4335-4399
 	for index=0,63 do
 			stats.set_bool_masked("MP_NGPSTAT_BOOL0",value,index)
 	end
 end
 menu.add_action("MP_NGPSTAT_BOOL",function()
-	mp_ngpstat_bool_unlock(true,mpx)
+	mp_ngpstat_bool_unlock(true)
 end
 )
 local function ngpstat_bool_unlock(value,mpx)--4207-4335
-	for i=0,2 do
+	for i=0,1 do
 		for index=0,63 do
 			stats.set_bool_masked(mpx.."NGPSTAT_BOOL"..i,value,index)
 		end
@@ -273,7 +263,7 @@ menu.add_action("TUPSTAT_BOOL",function()
 	tupstat_bool_unlock(true,mpx)
 end
 )
-local function mp_tupstat_bool_unlock(value,mpx)--2919-3111	
+local function mp_tupstat_bool_unlock(value)--2919-3111	
         for i=0,2 do	
 		for index=0,63 do
 			stats.set_bool_masked("MP_TUPSTAT_BOOL"..i,value,index)
@@ -281,11 +271,11 @@ local function mp_tupstat_bool_unlock(value,mpx)--2919-3111
 	end		
 end
 menu.add_action("MP_TUPSTAT_BOOL",function()
-	mp_tupstat_bool_unlock(true,mpx)
+	mp_tupstat_bool_unlock(true)
 end
 )
 
-local function mp_pstat_bool(value,mpx)
+local function mp_pstat_bool(value)
 	for i=0,2 do
 		for index=0,63 do
 			stats.set_bool_masked("MP_PSTAT_BOOL"..i,value,index)
@@ -293,7 +283,7 @@ local function mp_pstat_bool(value,mpx)
 	end
 end
 menu.add_action("MP_PSTAT_BOOL",function()--513-705
-	mp_pstat_bool(true,mpx)
+	mp_pstat_bool(true)
 end
 )
 local function pstat_bool(value,mpx)
