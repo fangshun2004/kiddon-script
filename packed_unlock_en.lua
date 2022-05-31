@@ -1,375 +1,206 @@
-if stats.get_int("MPPLY_LAST_MP_CHAR") == 0 then
-mpx = "MP0_"
-else
-mpx = "MP1_"
+﻿local packed_funs = require("./scripts/packed_fun") -- Invoke the packed_fun module
+
+local packed_unlock_menu = menu.add_submenu("Packed Unlock") -- First-level menu
+
+local packed_bool_unlock_menu = packed_unlock_menu:add_submenu("Packed bool 解锁") -- Secondary menu
+
+local function set_mass_packed_bool(value, min_i, max_i)
+    for index = min_i, max_i do
+        packed_funs.set_packed_bool(index, value)
+    end
 end
 
-local function fixertattoostat_bool_unlock(value,mpx)--32411-32475
-	for index=0,63 do
-		stats.set_bool_masked(mpx.."FIXERTATTOOSTAT0",value,index)
-	end
-end
-menu.add_action("FIXERTATTOOSTAT--Contact DLC",function() --Contact dlc
-	fixertattoostat_bool_unlock(true,mpx)
-end
-)
+-------------------------------------Unlock/lock toggle button-------------------------------------
+local unlock_state = true
+packed_bool_unlock_menu:add_toggle("-------------------Unlock/lock", function()
+    return unlock_state
+end, function()
+    unlock_state = not unlock_state
+end)
+-------------------------------------packed bool unlock-------------------------------------
 
-local function fixerpstat_bool_unlock(value,mpx)--32283-32411
-	for i=0,1 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."FIXERPSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("FIXERPSTAT_BOOL--Contact DLC",function()--Contact dlcdlc
-	fixerpstat_bool_unlock(true,mpx)	
-end
-)
+packed_bool_unlock_menu:add_action("PSTAT_BOOL", function() -- 0-192
+    set_mass_packed_bool(unlock_state, 0, 192)
+    packed_funs.set_packed_bool(24, false) -- minimap
+    packed_funs.set_packed_bool(158, false) -- free weevil
+end)
 
-local function tunerpstal_bool_unlock(value,mpx) --31707-32283
-	for i=0,8 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."TUNERPSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("TUNERPSTAT_BOOL--Riders' clubs",function()
-	tunerpstal_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("MP_PSTAT_BOOL", function() -- 513-705
+    set_mass_packed_bool(unlock_state, 513, 705)
+end)
 
-local function hislandpstal_bool_unlock(value,mpx)--30515-30707
-	for i=0,2 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."HISLANDPSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("HISLANDPSTAT_BOOL--Peric Island",function() --Peric Island
-	hislandpstal_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("MP_TUPSTAT_BOOL", function() -- 2919-3111
+    set_mass_packed_bool(unlock_state, 2919, 3111)
+end)
 
+packed_bool_unlock_menu:add_action("TUPSTAT_BOOL", function() -- 3111-3879
+    set_mass_packed_bool(unlock_state, 3111, 3879)
+end)
 
-local function su20tattoostat_bool_unlock(value,mpx) --30227-30355
-	for i=0,1 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."SU20TATTOOSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("SU20TATTOOSTAT_BOOL--Summer updates",function()
-	su20tattoostat_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("NGPSTAT_BOOL", function() -- 4207-4335
+    set_mass_packed_bool(unlock_state, 4207, 4335)
+end)
 
-local function su20pstat_bool_unlock(value,mpx)--30355-30483
-	for i=0,1 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."SU20PSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("SU20PSTAT_BOOL--Summer updates",function()--Summer updates
-	su20pstat_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("MP_NGPSTAT_BOOL", function() -- 4335-4399
+    set_mass_packed_bool(unlock_state, 4335, 4399)
+end)
 
-local function heist3tattoostat_bool_unlock(value,mpx) --28355-28483
-	for i=0,1 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."HEIST3TATTOOSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("HEIST3TATTOOSTAT_BOOL--Casino HEIST",function()--Casino HEIST
-	heist3tattoostat_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("NGTATPSTAT_BOOL", function() -- 6029-6413
+    set_mass_packed_bool(unlock_state, 6029, 6413)
+end)
 
+packed_bool_unlock_menu:add_action("MP_NGDLCPSTAT_BOOL", function() -- 7321-7385
+    set_mass_packed_bool(unlock_state, 7321, 7385)
+end)
 
-local function casinohstpstat_bool_unlock(value,mpx)--28098-28354
-	for i=0,3 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("CASINOHSTPSTAT_BOOL--Casino HEIST",function()--Casino HEIST
-	casinohstpstat_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("NGDLCPSTAT_BOOL", function() -- 7385-7641
+    set_mass_packed_bool(unlock_state, 7385, 7641)
+end)
 
-local function casinopstat_bool_unlock(value,mpx)--26810-27258
-	for i=0,6 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("CASINOPSTAT_BOOL--Diamond Casino",function() --Diamond Casino
-	casinopstat_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL4",false,23)--Re-watch casino animations
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL6",false,51)--Re-watch the casino 2nd floor animation
+packed_bool_unlock_menu:add_action("DLCBIKEPSTAT_BOOL Bikers ", function() -- Bikers
+    set_mass_packed_bool(unlock_state, 9361, 9553)
+end)
 
-end
-)
+packed_bool_unlock_menu:add_action("DLCGUNPSTAT_BOOL Import/Export ", function() -- Import/Export
+    set_mass_packed_bool(unlock_state, 15369, 15561)
+end)
 
-local function arenawarspstat_bool_unlock(value,mpx)--24962-25538
-	for i=0,8 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("ARENAWARSPSTAT_BOOL--Arena",function() --arena
-	arenawarspstat_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("GUNTATPSTAT_BOOL Gunrunning", function() -- Gunrunning
+    set_mass_packed_bool(unlock_state, 15562, 15946)
+end)
 
-local function businessbatpstat_bool_unlock(value,mpx)--22066-22194
-	for i=0,1 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."BUSINESSBATPSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("BUSINESSBATPSTAT_BOOL--Nightclub",function()--nightclub
-	businessbatpstat_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."BUSINESSBATPSTAT_BOOL0",false,3)--speedo4
-end
-)
+packed_bool_unlock_menu:add_action("DLCSMUGCHARPSTAT Smuggler's Run", function() -- Smuggler's Run
+    set_mass_packed_bool(unlock_state, 15946, 16010)
+    packed_funs.set_packed_bool(22069, false); -- cuban800
+end)
 
-local function gangopspstat_bool_unlock(value,mpx)--18098-18162
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."GANGOPSPSTAT_BOOL0",value,index)
-		end
-end
-menu.add_action("GANGOPSPSTAT_BOOL--Doomsday HEIST",function()
-	gangopspstat_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("GANGOPSPSTAT_BOOL The Doomsday Heist", function() -- The Doomsday Heist
+    set_mass_packed_bool(unlock_state, 18098, 18162)
+end)
 
-local function dlcsmugcharpstat_bool_unlock(value,mpx) --15946-16010
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."DLCSMUGCHARPSTAT0",value,index)
-		end
-end
-menu.add_action("DLCSMUGCHARPSTAT--Arms smuggling",function()
-	dlcsmugcharpstat_bool_unlock(true,mpx)
-	stats.set_bool_masked(mpx.."DLCSMUGCHARPSTAT0",false,48)--cuban800
-end
-)
+packed_bool_unlock_menu:add_action("BUSINESSBATPSTAT_BOOL  After Hours", function() -- nightclub
+    set_mass_packed_bool(unlock_state, 22066, 22194)
+    packed_funs.set_packed_bool(22069, false) -- 竞速 speedo4
+end)
 
-local function guntatpstat_bool_unlock(value,mpx)--15562-15946
-	for i=0,5 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."GUNTATPSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("GUNTATPSTAT_BOOL--Arms smuggling",function()
-	guntatpstat_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("ARENAWARSPSTAT_BOOL Arena War", function() -- Arena War
+    set_mass_packed_bool(unlock_state, 24962, 25538)
+end)
 
-local function dlcgunpstat_bool_unlock(value,mpx)--15369-15561
-	for i=0,2 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."DLCGUNPSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("DLCGUNPSTAT_BOOL--Arms smuggling",function()
-	dlcgunpstat_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("CASINOPSTAT_BOOL The Diamond Casino & Resort",
+    function() -- The Diamond Casino & Resort
+        set_mass_packed_bool(unlock_state, 26810, 27258)
+    end)
 
-local function dlcbikepstat_bool_unlock(value,mpx)--9361-9553
-	for i=0,2 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."DLCBIKEPSTAT"..i,value,index)
-		end
-	end
-end
-menu.add_action("DLCBIKEPSTAT_BOOL",function()
-	dlcbikepstat_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("CASINOHSTPSTAT_BOOL The Diamond Casino Heist",
+    function() -- The Diamond Casino Heist
+        set_mass_packed_bool(unlock_state, 28098, 28354)
+    end)
 
-local function ngdlcpstat_bool_unlock(value,mpx)--7385--7641
-	for i=0,3 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."NGDLCPSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("NGDLCPSTAT_BOOL",function()
-	ngdlcpstat_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("HEIST3TATTOOSTAT_BOOL The Diamond Casino Heist",
+    function() -- The Diamond Casino Heist
+        set_mass_packed_bool(unlock_state, 28355, 28483)
+    end)
 
-local function mp_ngdlcpstat_bool_unlock(value)--7321-7385
-	for index=0,63 do
-			stats.set_bool_masked("MP_NGDLCPSTAT_BOOL0",value,index)
-	end
-end
-menu.add_action("MP_NGDLCPSTAT_BOOL",function()
-	mp_ngdlcpstat_bool_unlock(true)
-end
-)
+packed_bool_unlock_menu:add_action("SU20PSTAT_BOOL Los Santos Summer Special", function() -- Los Santos Summer Special
+    set_mass_packed_bool(unlock_state, 30355, 30483)
+end)
 
+packed_bool_unlock_menu:add_action("SU20TATTOOSTAT_BOOL Los Santos Summer Special",
+    function() -- Los Santos Summer Special
+        set_mass_packed_bool(unlock_state, 30227, 30355)
+    end)
 
-local function ngtatpstat_bool_unlock(value,mpx)--6029-6413
-	for i=0,5 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."NGTATPSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("NGTATPSTAT_BOOL",function()
-	ngtatpstat_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("HISLANDPSTAT_BOOL The Cayo Perico Heist", function() -- The Cayo Perico Heist
+    set_mass_packed_bool(unlock_state, 30515, 30707)
+end)
 
+packed_bool_unlock_menu:add_action("TUNERPSTAT_BOOL Los Santos Tuners", function() -- Los Santos Tuners
+    set_mass_packed_bool(unlock_state, 31707, 32283)
+end)
 
-local function mp_ngpstat_bool_unlock(value)--4335-4399
-	for index=0,63 do
-			stats.set_bool_masked("MP_NGPSTAT_BOOL0",value,index)
-	end
-end
-menu.add_action("MP_NGPSTAT_BOOL",function()
-	mp_ngpstat_bool_unlock(true)
-end
-)
-local function ngpstat_bool_unlock(value,mpx)--4207-4335
-	for i=0,1 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."NGPSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("NGPSTAT_BOOL",function()
-	ngpstat_bool_unlock(true,mpx)
-end
-)
+packed_bool_unlock_menu:add_action("FIXERPSTAT_BOOL The Contract", function() -- The Contract
+    set_mass_packed_bool(unlock_state, 32283, 32411)
+end)
 
+packed_bool_unlock_menu:add_action("FIXERTATTOOSTAT The Contract", function() -- The Contract
+    set_mass_packed_bool(unlock_state, 32411, 32475)
+end)
 
-local function tupstat_bool_unlock(value,mpx)--3111-3879
-	for i=0,11 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."TUPSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("TUPSTAT_BOOL",function()
-	tupstat_bool_unlock(true,mpx)
-end
-)
-local function mp_tupstat_bool_unlock(value)--2919-3111
-	for i=0,2 do
-		for index=0,63 do
-			stats.set_bool_masked("MP_TUPSTAT_BOOL"..i,value,index)
-		end
-	end	
-end
-menu.add_action("MP_TUPSTAT_BOOL",function()
-	mp_tupstat_bool_unlock(true)
-end
-)
+packed_bool_unlock_menu:add_action("Re-watch the dlc animation", function()
+    packed_funs.set_packed_bool(28256, false) -- Re-watch the studio task cutscene Contact DLC
+    packed_funs.set_packed_bool(28257, false) -- Re-watch the studio task cutscene  Contact DLC
+    packed_funs.set_packed_bool(22193, false) -- Reset the car shop cutscene
+    packed_funs.set_packed_bool(31753, false) -- Reset the car shop cutscene
+    packed_funs.set_packed_bool(31737, false) -- Re-watch the tuner animation 
+    packed_funs.set_packed_bool(27089, false) -- Re-watch casino animations
+    packed_funs.set_packed_bool(27245, false) -- Re-watch the casino 2nd floor animation
+    packed_funs.set_packed_bool(25008, false) -- arena11
+    packed_funs.set_packed_bool(25009, false) -- arena2
+    packed_funs.set_packed_bool(25010, false) -- arena3
+    packed_funs.set_packed_bool(22106, false) -- -----nightclub----Requires that the predecessor task not complete(false)
+    packed_funs.set_packed_bool(18161, false) -- nightclub---ready:employee()
+    packed_funs.set_packed_bool(22067, false) -- nightclub---DJ
+    packed_funs.set_packed_bool(22068, false) -- nightclub--ready:equipment
+    packed_funs.set_packed_bool(22068, false) -- nightclub--- DJ Task completion animation
+end)
 
-local function mp_pstat_bool(value)
-	for i=0,2 do
-		for index=0,63 do
-			stats.set_bool_masked("MP_PSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("MP_PSTAT_BOOL",function()--513-705
-	mp_pstat_bool(true)
-end
-)
-local function pstat_bool(value,mpx)
-	for i=0,2 do
-		for index=0,63 do
-			stats.set_bool_masked(mpx.."PSTAT_BOOL"..i,value,index)
-		end
-	end
-end
-menu.add_action("PSTAT_BOOL",function()--0-192
-	pstat_bool(true,mpx)
-	stats.set_bool_masked(mpx.."PSTAT_BOOL0",false,24)--mini map
-	stats.set_bool_masked(mpx.."PSTAT_BOOL2",false,30)-- free weevil
-end
-)
+----------------------------------packed int----------------------------------
+local packed_int_unlock_menu = packed_unlock_menu:add_submenu("Packed int Unlock") -- Secondary menu
 
-menu.add_action("Re-watch the dlc animation ",function()
-	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,46)--arena1
-	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,47)-- arena2
-	stats.set_bool_masked(mpx.."ARENAWARSPSTAT_BOOL0",false,48)-- arena3
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL4",false,23)--Re-watch casino animations
-	stats.set_bool_masked(mpx.."CASINOPSTAT_BOOL6",false,51)--Re-watch the casino 2nd floor animation
-	stats.set_bool_masked(mpx.."TUNERPSTAT_BOOL0",false,30)--Re-watch the tuner animation 
-	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,30)--Re-watch the studio task cutscene Contact DLC
-	stats.set_bool_masked(mpx.."CASINOHSTPSTAT_BOOL2",false,31)--Re-watch the studio task cutscene  Contact DLC
-end
-)
+-- Monkey car
+packed_int_unlock_menu:add_action("Monkey car", function()
+    packed_funs.set_packed_int(22063, 20)
+end)
 
-menu.add_action("Monkey car",function()
-	stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT380", 20,40, 8)--Monkey car
-end
-)
+-- TERBYTE Wholesale price
+packed_int_unlock_menu:add_action("TERBYTE Wholesale price", function()
 
-menu.add_action("TERBYTE Wholesale price",function()
-	if (stats.get_masked_int(mpx.."BUSINESSBATPSTAT_INT379", 0, 8) < 5) then
-		stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT379", 5, 0, 8)--TERBYTE Wholesale price
-	end
-end
-)
+    packed_funs.set_packed_int(22050, 5)
+end)
 
-menu.add_action("Gold Business Battle Trophy",function()
-	if (stats.get_masked_int(mpx.."BUSINESSBATPSTAT_INT380", 0, 8) <20) then
-		stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT380", 20, 0, 8)--Gold Business Battle Trophy
-	end
-end
-)
+-- --Gold Business Battle Trophy
+packed_int_unlock_menu:add_action("Gold Business Battle Trophy", function()
+    if (packed_funs.get_packed_int(22058) < 20) then
+        packed_funs.set_packed_int(22058, 20)
+    end
+end)
 
-menu.add_action("Nightclub safe decorations",function()
-	stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT379", 51, 8, 8)--box
-	stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT379", 100, 16, 8)--Bullet tin box 
-	stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT379", 20, 24, 8)--Methamphetamine 
-	stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT379", 80, 32, 8)--marijuana 
-	stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT379", 60, 40, 8)--perjury 
-	stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT379", 40, 48, 8)--Counterfeit bills 
-	stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT379", 10, 56, 8)--//cocaine
-	end
-)
+packed_int_unlock_menu:add_action("Nightclub safe decorations", function()
+    packed_funs.set_packed_int(22051, 50); -- box
+    packed_funs.set_packed_int(22052, 100); -- Bullet tin box
+    packed_funs.set_packed_int(22053, 20); -- Methamphetamine 
+    packed_funs.set_packed_int(22054, 80); -- marijuana 
+    packed_funs.set_packed_int(22055, 60); -- perjury 
+    packed_funs.set_packed_int(22056, 40); -- Counterfeit bills 
+    packed_funs.set_packed_int(22057, 10); -- cocaine
+end)
 
-menu.add_action("Facility maintenance area decorations",function()
-	stats.set_masked_int(mpx.."DLCSMUGCHARPSTAT_INT260", 3, 16, 8)--TM02
-	stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT260", 3, 24, 8)--
-	stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT260", 3, 32, 8)--
-	stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT260", 3, 40, 8)--
-	stats.set_masked_int(mpx.."BUSINESSBATPSTAT_INT260", 3, 48, 8)--
-	end
-)
+packed_int_unlock_menu:add_action("Facility maintenance area decorations", function()
+    packed_funs.set_packed_int(18982, 3) -- tM02
+    packed_funs.set_packed_int(18983, 3) -- 防暴车
+    packed_funs.set_packed_int(18984, 3) -- 导弹车
+    packed_funs.set_packed_int(18985, 3) -- 推进者
+    packed_funs.set_packed_int(18986, 3) -- 复仇者
+end)
 
-menu.add_action("Unlocking the double-action revolver *** needs to be used again by swapping occupancy",function()
-	if (stats.get_masked_int(mpx.."GANGOPSPSTAT_INT102", 24, 8)<3) then
-		stats.set_masked_int(mpx.."GANGOPSPSTAT_INT102", 3, 24, 8)--Skip to the final mission stage
-	end
-	if (stats.get_masked_int(mpx.."GANGOPSPSTAT_INT102", 24, 8) > 3) then
-		stats.set_masked_int(mpx.."GANGOPSPSTAT_INT102", 0, 24, 8)--Task progress reset
-	end
-end
-)
+packed_int_unlock_menu:add_action(
+    "Unlocking the double-action revolver *** needs to be used again by swapping occupancy", function()
+        if (packed_funs.get_packed_int(18981) == 0) then
+            packed_funs.set_packed_int(18981, 3) -- Skip to the final mission stage
+        end
+        if (packed_funs.get_packed_int(18981) > 3) then
+            packed_funs.set_packed_int(18981, 0) -- Task progress reset
+            -- 换占据后才能触发
+        end
+    end)
 
-menu.add_action("Unlocking the Stone Axe *** requires a change of occupation to use again",function()
-	if (stats.get_masked_int("MP_NGDLCPSTAT_INT0", 16, 8)<5)then
-		stats.set_masked_int("MP_NGDLCPSTAT_INT0", 5, 16, 8)--Skip to the final mission stage
-	end
-	if (stats.get_masked_int("MP_NGDLCPSTAT_INT0", 16, 8)>5)then
-		stats.set_masked_int("MP_NGDLCPSTAT_INT0", 0, 16, 8) --Task progress reset
-	end	
-end
-)
+packed_int_unlock_menu:add_action("Unlocking the Stone Axe *** requires a change of occupation to use again", function()
+    if (packed_funs.get_packed_int(7315) == 0) then
+        packed_funs.set_packed_int(7315, 5); -- --Skip to the final mission stage
+    end
+    if (packed_funs.get_packed_int(7315) > 5) then
+        packed_funs.set_packed_int(7315, 0); -- Task progress reset
+        -- 换占据后才能触发
+    end
+end)
