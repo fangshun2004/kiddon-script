@@ -2,7 +2,7 @@
 
 local mpx = "MP" .. stats.get_int("MPPLY_LAST_MP_CHAR") .. "_"
 
-local function get_packed_bool_date(index, mpx)
+local function get_packed_bool_date(index)
     local statName = nil
     -- 0-198
     if (index >= 0 and index < 192) then
@@ -160,7 +160,7 @@ end
 function packed_funs.set_packed_bool(index, value)
     local statname
     local bitindex
-    statname, bitindex = get_packed_bool_date(index, mpx)
+    statname, bitindex = get_packed_bool_date(index)
     print("statname is:", statname, "\nbitindex is:", bitindex)
     if (statname ~= nil) then
         stats.set_bool_masked(statname, value, bitindex)
@@ -170,13 +170,13 @@ end
 function packed_funs.get_packed_bool(index)
     local statname
     local bitindex
-    statname, bitindex = get_packed_bool_date(index, mpx)
+    statname, bitindex = get_packed_bool_date(index)
     if (statname ~= nil) then
         return stats.get_bool_masked(statname, bitindex)
     end
 end
 
-local function get_packed_int_date(index, mpx)
+local function get_packed_int_date(index)
     local statName = nil
     if (index >= 384 and index < 457) then
         i = (index - 384) // 8
@@ -305,7 +305,7 @@ function packed_funs.set_packed_int(index, value)
     local statname
     local bitStart
 
-    statname, bitStart = get_packed_int_date(index, mpx)
+    statname, bitStart = get_packed_int_date(index)
     print("statname is:", statname, "\nbitindex is:", bitStart)
     if (statname ~= nil) then
         stats.set_masked_int(statname, value, bitStart, 8)
@@ -316,7 +316,7 @@ end
 function packed_funs.get_packed_int(index)
     local statname
     local bitStart
-    statname, bitindex = get_packed_int_date(index, mpx)
+    statname, bitindex = get_packed_int_date(index)
     if (statname ~= nil) then
         return stats.get_masked_int(statname, bitStart, 8)
     end
