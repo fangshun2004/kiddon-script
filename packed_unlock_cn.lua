@@ -158,13 +158,13 @@ packed_int_unlock_menu:add_action("商战黄金奖杯", function()
 end)
 
 packed_int_unlock_menu:add_action("夜总会保险箱装饰", function()
-    packed_funs.set_packed_int(22051, 50); -- 木盒子
-    packed_funs.set_packed_int(22052, 100); -- 子弹铁盒
-    packed_funs.set_packed_int(22053, 20); -- 冰毒
-    packed_funs.set_packed_int(22054, 80); -- 大麻
-    packed_funs.set_packed_int(22055, 60); -- 伪证
-    packed_funs.set_packed_int(22056, 40); -- 假钞
-    packed_funs.set_packed_int(22057, 10); -- 可卡因
+    packed_funs.set_packed_int(22051, 50) -- 木盒子
+    packed_funs.set_packed_int(22052, 100) -- 子弹铁盒
+    packed_funs.set_packed_int(22053, 20) -- 冰毒
+    packed_funs.set_packed_int(22054, 80) -- 大麻
+    packed_funs.set_packed_int(22055, 60) -- 伪证
+    packed_funs.set_packed_int(22056, 40) -- 假钞
+    packed_funs.set_packed_int(22057, 10) -- 可卡因
 end)
 
 packed_int_unlock_menu:add_action("设施维修区摆件", function()
@@ -187,10 +187,10 @@ end)
 
 packed_int_unlock_menu:add_action("解锁石斧 使用后换占据再次使用", function()
     if (packed_funs.get_packed_int(7315) == 0) then
-        packed_funs.set_packed_int(7315, 5); -- 跳到石斧最后任务阶段
+        packed_funs.set_packed_int(7315, 5) -- 跳到石斧最后任务阶段
     end
     if (packed_funs.get_packed_int(7315) > 5) then
-        packed_funs.set_packed_int(7315, 0); -- 双动左轮进度清零
+        packed_funs.set_packed_int(7315, 0) -- 双动左轮进度清零
         -- 换占据后才能触发
     end
 end)
