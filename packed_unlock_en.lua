@@ -167,13 +167,13 @@ packed_int_unlock_menu:add_action("Gold Business Battle Trophy", function()
 end)
 
 packed_int_unlock_menu:add_action("Nightclub safe decorations", function()
-    packed_funs.set_packed_int(22051, 50); -- box
-    packed_funs.set_packed_int(22052, 100); -- Bullet tin box
-    packed_funs.set_packed_int(22053, 20); -- Methamphetamine 
-    packed_funs.set_packed_int(22054, 80); -- marijuana 
-    packed_funs.set_packed_int(22055, 60); -- perjury 
-    packed_funs.set_packed_int(22056, 40); -- Counterfeit bills 
-    packed_funs.set_packed_int(22057, 10); -- cocaine
+    packed_funs.set_packed_int(22051, 50) -- box
+    packed_funs.set_packed_int(22052, 100) -- Bullet tin box
+    packed_funs.set_packed_int(22053, 20) -- Methamphetamine 
+    packed_funs.set_packed_int(22054, 80) -- marijuana 
+    packed_funs.set_packed_int(22055, 60) -- perjury 
+    packed_funs.set_packed_int(22056, 40) -- Counterfeit bills 
+    packed_funs.set_packed_int(22057, 10) -- cocaine
 end)
 
 packed_int_unlock_menu:add_action("Facility maintenance area decorations", function()
@@ -197,10 +197,10 @@ packed_int_unlock_menu:add_action(
 
 packed_int_unlock_menu:add_action("Unlocking the Stone Axe *** requires a change of occupation to use again", function()
     if (packed_funs.get_packed_int(7315) == 0) then
-        packed_funs.set_packed_int(7315, 5); -- --Skip to the final mission stage
+        packed_funs.set_packed_int(7315, 5) -- --Skip to the final mission stage
     end
     if (packed_funs.get_packed_int(7315) > 5) then
-        packed_funs.set_packed_int(7315, 0); -- Task progress reset
+        packed_funs.set_packed_int(7315, 0) -- Task progress reset
         -- 换占据后才能触发
     end
 end)
