@@ -2,8 +2,9 @@
 
 local mpx = "MP" .. stats.get_int("MPPLY_LAST_MP_CHAR") .. "_"
 
-local function get_packed_bool_date(index, mpx)
+local function get_packed_bool_date(index)
     local statName = nil
+    local i = 0
     -- 0-198
     if (index >= 0 and index < 192) then
         i = (index - 0) // 64
@@ -28,7 +29,7 @@ local function get_packed_bool_date(index, mpx)
         index = (index - 3111) % 64
         statName = mpx .. "TUPSTAT_BOOL" .. i
     end
-    -- --4207--4335  
+    -- --4207--4335
     if (index >= 4207 and index < 4335) then
         i = (index - 4207) // 64
         index = (index - 4207) % 64
@@ -158,26 +159,22 @@ local function get_packed_bool_date(index, mpx)
 end
 
 function packed_funs.set_packed_bool(index, value)
-    local statname
-    local bitindex
-    statname, bitindex = get_packed_bool_date(index, mpx)
-    print("statname is:", statname, "\nbitindex is:", bitindex)
+    local statname, bitindex = get_packed_bool_date(index)
     if (statname ~= nil) then
         stats.set_bool_masked(statname, value, bitindex)
     end
 end
 
 function packed_funs.get_packed_bool(index)
-    local statname
-    local bitindex
-    statname, bitindex = get_packed_bool_date(index, mpx)
+    local statname, bitindex = get_packed_bool_date(index)
     if (statname ~= nil) then
         return stats.get_bool_masked(statname, bitindex)
     end
 end
 
-local function get_packed_int_date(index, mpx)
+local function get_packed_int_date(index)
     local statName = nil
+    local i = 0
     if (index >= 384 and index < 457) then
         i = (index - 384) // 8
         index = (index - 384) % 8 * 8
@@ -302,21 +299,14 @@ local function get_packed_int_date(index, mpx)
 end
 
 function packed_funs.set_packed_int(index, value)
-    local statname
-    local bitStart
-
-    statname, bitStart = get_packed_int_date(index, mpx)
-    print("statname is:", statname, "\nbitindex is:", bitStart)
+    local statname, bitStart = get_packed_int_date(index)
     if (statname ~= nil) then
         stats.set_masked_int(statname, value, bitStart, 8)
-        print("INT writw done")
     end
 end
 
 function packed_funs.get_packed_int(index)
-    local statname
-    local bitStart
-    statname, bitindex = get_packed_int_date(index, mpx)
+    local statname, bitStart = get_packed_int_date(index)
     if (statname ~= nil) then
         return stats.get_masked_int(statname, bitStart, 8)
     end

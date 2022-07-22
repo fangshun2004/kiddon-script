@@ -2,7 +2,7 @@
 
 local packed_unlock_menu = menu.add_submenu("Packed Unlock") -- First-level menu
 
-local packed_bool_unlock_menu = packed_unlock_menu:add_submenu("Packed bool 解锁") -- Secondary menu
+local packed_bool_unlock_menu = packed_unlock_menu:add_submenu("Packed Bool Unlock") -- Secondary menu
 
 local function set_mass_packed_bool(value, min_i, max_i)
     for index = min_i, max_i do
@@ -57,73 +57,69 @@ packed_bool_unlock_menu:add_action("NGDLCPSTAT_BOOL", function() -- 7385-7641
     set_mass_packed_bool(unlock_state, 7385, 7641)
 end)
 
-packed_bool_unlock_menu:add_action("DLCBIKEPSTAT_BOOL Bikers ", function() -- Bikers
+packed_bool_unlock_menu:add_action("DLCBIKEPSTAT_BOOL '(Bikers) ", function() -- Bikers
     set_mass_packed_bool(unlock_state, 9361, 9553)
 end)
 
-packed_bool_unlock_menu:add_action("DLCGUNPSTAT_BOOL Import/Export ", function() -- Import/Export
+packed_bool_unlock_menu:add_action("DLCGUNPSTAT_BOOL (Import/Export)", function() -- Import/Export
     set_mass_packed_bool(unlock_state, 15369, 15561)
 end)
 
-packed_bool_unlock_menu:add_action("GUNTATPSTAT_BOOL Gunrunning", function() -- Gunrunning
+packed_bool_unlock_menu:add_action("GUNTATPSTAT_BOOL (Gunrunning)", function() -- Gunrunning
     set_mass_packed_bool(unlock_state, 15562, 15946)
 end)
 
-packed_bool_unlock_menu:add_action("DLCSMUGCHARPSTAT Smuggler's Run", function() -- Smuggler's Run
+packed_bool_unlock_menu:add_action("DLCSMUGCHARPSTAT (Smuggler's Run)", function() -- Smuggler's Run
     set_mass_packed_bool(unlock_state, 15946, 16010)
     packed_funs.set_packed_bool(22069, false); -- cuban800
 end)
 
-packed_bool_unlock_menu:add_action("GANGOPSPSTAT_BOOL The Doomsday Heist", function() -- The Doomsday Heist
+packed_bool_unlock_menu:add_action("GANGOPSPSTAT_BOOL (The Doomsday Heist)", function() -- The Doomsday Heist
     set_mass_packed_bool(unlock_state, 18098, 18162)
 end)
 
-packed_bool_unlock_menu:add_action("BUSINESSBATPSTAT_BOOL  After Hours", function() -- nightclub
+packed_bool_unlock_menu:add_action("BUSINESSBATPSTAT_BOOL  (After Hours)", function() -- nightclub
     set_mass_packed_bool(unlock_state, 22066, 22194)
-    packed_funs.set_packed_bool(22069, false) -- 竞速 speedo4
+    packed_funs.set_packed_bool(22069, false) -- speedo4
 end)
 
-packed_bool_unlock_menu:add_action("ARENAWARSPSTAT_BOOL Arena War", function() -- Arena War
+packed_bool_unlock_menu:add_action("ARENAWARSPSTAT_BOOL (Arena War)", function() -- Arena War
     set_mass_packed_bool(unlock_state, 24962, 25538)
 end)
 
-packed_bool_unlock_menu:add_action("CASINOPSTAT_BOOL The Diamond Casino & Resort",
-    function() -- The Diamond Casino & Resort
-        set_mass_packed_bool(unlock_state, 26810, 27258)
-    end)
+packed_bool_unlock_menu:add_action("CASINOPSTAT_BOOL (The Diamond Casino & Resort)", function() -- The Diamond Casino & Resort
+    set_mass_packed_bool(unlock_state, 26810, 27258)
+end)
 
-packed_bool_unlock_menu:add_action("CASINOHSTPSTAT_BOOL The Diamond Casino Heist",
-    function() -- The Diamond Casino Heist
-        set_mass_packed_bool(unlock_state, 28098, 28354)
-    end)
+packed_bool_unlock_menu:add_action("CASINOHSTPSTAT_BOOL (The Diamond Casino Heist)", function() -- The Diamond Casino Heist
+    set_mass_packed_bool(unlock_state, 28098, 28354)
+end)
 
-packed_bool_unlock_menu:add_action("HEIST3TATTOOSTAT_BOOL The Diamond Casino Heist",
-    function() -- The Diamond Casino Heist
-        set_mass_packed_bool(unlock_state, 28355, 28483)
-    end)
+packed_bool_unlock_menu:add_action("HEIST3TATTOOSTAT_BOOL (The Diamond Casino Heist)", function() -- The Diamond Casino Heist
+    set_mass_packed_bool(unlock_state, 28355, 28483)
+end)
 
-packed_bool_unlock_menu:add_action("SU20PSTAT_BOOL Los Santos Summer Special", function() -- Los Santos Summer Special
+packed_bool_unlock_menu:add_action("SU20PSTAT_BOOL (Los Santos Summer Special)", function() -- Los Santos Summer Special
     set_mass_packed_bool(unlock_state, 30355, 30483)
 end)
 
-packed_bool_unlock_menu:add_action("SU20TATTOOSTAT_BOOL Los Santos Summer Special",
-    function() -- Los Santos Summer Special
-        set_mass_packed_bool(unlock_state, 30227, 30355)
-    end)
+packed_bool_unlock_menu:add_action("SU20TATTOOSTAT_BOOL (Los Santos Summer Special)", function() -- Los Santos Summer Special
+    set_mass_packed_bool(unlock_state, 30227, 30355)
+end)
 
-packed_bool_unlock_menu:add_action("HISLANDPSTAT_BOOL The Cayo Perico Heist", function() -- The Cayo Perico Heist
+packed_bool_unlock_menu:add_action("HISLANDPSTAT_BOOL (The Cayo Perico Heist)", function() -- The Cayo Perico Heist
     set_mass_packed_bool(unlock_state, 30515, 30707)
 end)
 
-packed_bool_unlock_menu:add_action("TUNERPSTAT_BOOL Los Santos Tuners", function() -- Los Santos Tuners
+packed_bool_unlock_menu:add_action("TUNERPSTAT_BOOL (Los Santos Tuners)", function() -- Los Santos Tuners
     set_mass_packed_bool(unlock_state, 31707, 32283)
 end)
 
-packed_bool_unlock_menu:add_action("FIXERPSTAT_BOOL The Contract", function() -- The Contract
+packed_bool_unlock_menu:add_action("FIXERPSTAT_BOOL (The Contract)", function() -- The Contract
     set_mass_packed_bool(unlock_state, 32283, 32411)
 end)
 
-packed_bool_unlock_menu:add_action("FIXERTATTOOSTAT The Contract", function() -- The Contract
+packed_bool_unlock_menu:add_action("FIXERTATTOOSTAT (The Contract)", function() -- The Contract
     set_mass_packed_bool(unlock_state, 32411, 32475)
 end)
 
@@ -132,7 +128,7 @@ packed_bool_unlock_menu:add_action("Re-watch the dlc animation", function()
     packed_funs.set_packed_bool(28257, false) -- Re-watch the studio task cutscene  Contact DLC
     packed_funs.set_packed_bool(22193, false) -- Reset the car shop cutscene
     packed_funs.set_packed_bool(31753, false) -- Reset the car shop cutscene
-    packed_funs.set_packed_bool(31737, false) -- Re-watch the tuner animation 
+    packed_funs.set_packed_bool(31737, false) -- Re-watch the tuner animation
     packed_funs.set_packed_bool(27089, false) -- Re-watch casino animations
     packed_funs.set_packed_bool(27245, false) -- Re-watch the casino 2nd floor animation
     packed_funs.set_packed_bool(25008, false) -- arena11
@@ -146,7 +142,7 @@ packed_bool_unlock_menu:add_action("Re-watch the dlc animation", function()
 end)
 
 ----------------------------------packed int----------------------------------
-local packed_int_unlock_menu = packed_unlock_menu:add_submenu("Packed int Unlock") -- Secondary menu
+local packed_int_unlock_menu = packed_unlock_menu:add_submenu("Packed Int Unlock") -- Secondary menu
 
 -- Monkey car
 packed_int_unlock_menu:add_action("Monkey car", function()
@@ -167,13 +163,13 @@ packed_int_unlock_menu:add_action("Gold Business Battle Trophy", function()
 end)
 
 packed_int_unlock_menu:add_action("Nightclub safe decorations", function()
-    packed_funs.set_packed_int(22051, 50); -- box
-    packed_funs.set_packed_int(22052, 100); -- Bullet tin box
-    packed_funs.set_packed_int(22053, 20); -- Methamphetamine 
-    packed_funs.set_packed_int(22054, 80); -- marijuana 
-    packed_funs.set_packed_int(22055, 60); -- perjury 
-    packed_funs.set_packed_int(22056, 40); -- Counterfeit bills 
-    packed_funs.set_packed_int(22057, 10); -- cocaine
+    packed_funs.set_packed_int(22051, 50) -- box
+    packed_funs.set_packed_int(22052, 100) -- Bullet tin box
+    packed_funs.set_packed_int(22053, 20) -- Methamphetamine
+    packed_funs.set_packed_int(22054, 80) -- marijuana
+    packed_funs.set_packed_int(22055, 60) -- perjury
+    packed_funs.set_packed_int(22056, 40) -- Counterfeit bills
+    packed_funs.set_packed_int(22057, 10) -- cocaine
 end)
 
 packed_int_unlock_menu:add_action("Facility maintenance area decorations", function()
@@ -186,21 +182,21 @@ end)
 
 packed_int_unlock_menu:add_action(
     "Unlocking the double-action revolver *** needs to be used again by swapping occupancy", function()
-        if (packed_funs.get_packed_int(18981) == 0) then
-            packed_funs.set_packed_int(18981, 3) -- Skip to the final mission stage
-        end
-        if (packed_funs.get_packed_int(18981) > 3) then
-            packed_funs.set_packed_int(18981, 0) -- Task progress reset
-            -- 换占据后才能触发
-        end
-    end)
+    if (packed_funs.get_packed_int(18981) == 0) then
+        packed_funs.set_packed_int(18981, 3) -- Skip to the final mission stage
+    end
+    if (packed_funs.get_packed_int(18981) > 3) then
+        packed_funs.set_packed_int(18981, 0) -- Task progress reset
+        -- 换占据后才能触发
+    end
+end)
 
 packed_int_unlock_menu:add_action("Unlocking the Stone Axe *** requires a change of occupation to use again", function()
     if (packed_funs.get_packed_int(7315) == 0) then
-        packed_funs.set_packed_int(7315, 5); -- --Skip to the final mission stage
+        packed_funs.set_packed_int(7315, 5) -- --Skip to the final mission stage
     end
     if (packed_funs.get_packed_int(7315) > 5) then
-        packed_funs.set_packed_int(7315, 0); -- Task progress reset
+        packed_funs.set_packed_int(7315, 0) -- Task progress reset
         -- 换占据后才能触发
     end
 end)
