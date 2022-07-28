@@ -313,7 +313,7 @@ local function get_packed_int_date(index)
     if (index >= 34763 and index < 36627) then
         i = (index - 34763) // 8
         index = (index - 34763) % 8 * 8
-        statName = mpx .. "FIXERPSTAT_INT" .. i
+        statName = mpx .. "DLC12022PSTAT_INT" .. i
     end
     return statName, index
 end
