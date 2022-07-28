@@ -1,4 +1,4 @@
-﻿local packed_funs = require("./scripts/packed_fun") -- 调用packed_fun文件
+'﻿local packed_funs = require("./scripts/packed_fun") -- 调用packed_fun文件
 
 local packed_unlock_menu = menu.add_submenu("packed 解锁") -- 一级菜单
 
@@ -121,6 +121,14 @@ end)
 
 packed_bool_unlock_menu:add_action("FIXERTATTOOSTAT 解锁联系人DLC物品", function() -- 联系人dlc
     set_mass_packed_bool(unlock_state, 32411, 32475)
+end)
+
+packed_bool_unlock_menu:add_action("未知不工作主函数缺少代码", function() -- 未知dlc 阿浩?？内置修改器查询跳过了正好128个bool
+    set_mass_packed_bool(unlock_state, 34123, 34241)
+end)
+
+packed_bool_unlock_menu:add_action("DLC12022 解锁犯罪帝国物品", function() -- 犯罪帝国dlc
+    set_mass_packed_bool(unlock_state, 34251, 34763)
 end)
 
 packed_bool_unlock_menu:add_action("Re-watch the dlc animation 重新观看动画", function()
