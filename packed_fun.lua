@@ -155,6 +155,18 @@ local function get_packed_bool_date(index)
         index = (index - 32411) % 64
         statName = mpx .. "FIXERTATTOOSTAT_BOOL" .. i
     end
+    -- 34123-34241 阿浩?？
+    --if (index >= 34123 and index < 34241) then
+    --    i = (index - 34123) // 64
+    --    index = (index - 34123) % 64
+    --    statName = mpx .. "" .. i
+    -- end
+    -- 34251-34763
+    if (index >= 34251 and index < 34763) then
+        i = (index - 34251) // 64
+        index = (index - 34251) % 64
+        statName = mpx .. "DLC12022PSTAT_BOOL" .. i
+    end
     return statName, index
 end
 
@@ -294,6 +306,11 @@ local function get_packed_int_date(index)
         i = (index - 32475) // 8
         index = (index - 32475) % 8 * 8
         statName = mpx .. "FIXERPSTAT_INT" .. i
+    end
+    if (index >= 34763 and index < 36627) then
+        i = (index - 34763) // 8
+        index = (index - 34763) % 8 * 8
+        statName = mpx .. "DLC12022PSTAT_INT" .. i
     end
     return statName, index
 end

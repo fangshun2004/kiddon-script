@@ -1,9 +1,6 @@
 ﻿local packed_funs = require("./scripts/packed_fun") -- 调用packed_fun文件
-
-local packed_unlock_menu = menu.add_submenu("packed 解锁") -- 主菜单
-
+local packed_unlock_menu = menu.add_submenu("packed 解锁") -- 一级菜单
 local packed_bool_unlock_menu = packed_unlock_menu:add_submenu("Packed bool 解锁") -- 二级菜单
-
 local function set_mass_packed_bool(value, min_i, max_i)
     for index = min_i, max_i do
         packed_funs.set_packed_bool(index, value)
@@ -17,6 +14,7 @@ packed_bool_unlock_menu:add_toggle("-------------------解锁/锁定", function(
 end, function()
     unlock_state = not unlock_state
 end)
+
 -------------------------------------packed bool unlock-------------------------------------
 packed_bool_unlock_menu:add_action("PSTAT_BOOL", function() -- 0-192
     set_mass_packed_bool(unlock_state, 0, 192)
@@ -56,70 +54,77 @@ packed_bool_unlock_menu:add_action("NGDLCPSTAT_BOOL", function() -- 7385-7641
     set_mass_packed_bool(unlock_state, 7385, 7641)
 end)
 
-packed_bool_unlock_menu:add_action("DLCBIKEPSTAT_BOOL (狂野镖客)", function() -- 狂野飙客
-    set_mass_packed_bool(unlock_state, 9361, 9553)
+packed_bool_unlock_menu:add_action("狂野镖客", function() -- 狂野飙客
+    set_mass_packed_bool(unlock_state, 9361, 9553) --DLCBIKEPSTAT_BOOL 
 end)
 
-packed_bool_unlock_menu:add_action("DLCGUNPSTAT_BOOL (进出口大亨)", function() -- 进出口大亨
-    set_mass_packed_bool(unlock_state, 15369, 15561)
+packed_bool_unlock_menu:add_action("进出口大亨", function() -- 进出口大亨
+    set_mass_packed_bool(unlock_state, 15369, 15561) --DLCGUNPSTAT_BOOL 
 end)
 
-packed_bool_unlock_menu:add_action("GUNTATPSTAT_BOOL (军火走私)", function() -- 军火走私
-    set_mass_packed_bool(unlock_state, 15562, 15946)
+packed_bool_unlock_menu:add_action("军火走私", function() -- 军火走私
+    set_mass_packed_bool(unlock_state, 15562, 15946) --GUNTATPSTAT_BOOL 
 end)
 
-packed_bool_unlock_menu:add_action("DLCSMUGCHARPSTAT (走私大暴走)", function() -- 走私大暴走
-    set_mass_packed_bool(unlock_state, 15946, 16010)
+packed_bool_unlock_menu:add_action("走私大暴走", function() -- 走私大暴走
+    set_mass_packed_bool(unlock_state, 15946, 16010) --DLCSMUGCHARPSTAT 
     packed_funs.set_packed_bool(22069, false); -- 古邦800f cuban800
 end)
 
-packed_bool_unlock_menu:add_action("GANGOPSPSTAT_BOOL (末日豪劫)", function() -- 末日豪劫
-    set_mass_packed_bool(unlock_state, 18098, 18162)
+packed_bool_unlock_menu:add_action("末日豪劫", function() -- 末日豪劫
+    set_mass_packed_bool(unlock_state, 18098, 18162) --GANGOPSPSTAT_BOOL
 end)
-
-packed_bool_unlock_menu:add_action("BUSINESSBATPSTAT_BOOL (夜总会DLC物品)", function() -- 夜总会dlc
-    set_mass_packed_bool(unlock_state, 22066, 22194)
+packed_bool_unlock_menu:add_action("夜总会DLC物品", function() -- 夜总会dlc
+    set_mass_packed_bool(unlock_state, 22066, 22194) --BUSINESSBATPSTAT_BOOL 
     packed_funs.set_packed_bool(22069, false) -- 竞速 speedo4
 end)
 
-packed_bool_unlock_menu:add_action("ARENAWARSPSTAT_BOOL (竞技场DLC物品)", function() -- 竞技场dlc
-    set_mass_packed_bool(unlock_state, 24962, 25538)
+packed_bool_unlock_menu:add_action("决战竞技场DLC物品", function() -- 竞技场dlc
+    set_mass_packed_bool(unlock_state, 24962, 25538) --ARENAWARSPSTAT_BOOL
 end)
 
-packed_bool_unlock_menu:add_action("CASINOPSTAT_BOOL (钻石赌场DLC物品)", function() -- 钻石赌场dlc
-    set_mass_packed_bool(unlock_state, 26810, 27258)
+packed_bool_unlock_menu:add_action("钻石赌场DLC物品", function() -- 钻石赌场dlc
+    set_mass_packed_bool(unlock_state, 26810, 27258) --CASINOPSTAT_BOOL
 end)
 
-packed_bool_unlock_menu:add_action("CASINOHSTPSTAT_BOOL (赌场抢劫DLC物品)", function() -- 赌场抢劫dlc
-    set_mass_packed_bool(unlock_state, 28098, 28354)
+packed_bool_unlock_menu:add_action("赌场抢劫DLC物品", function() -- 赌场抢劫dlc
+    set_mass_packed_bool(unlock_state, 28098, 28354) --CASINOHSTPSTAT_BOOL
+    set_mass_packed_bool(unlock_state, 28355, 28483) --HEIST3TATTOOSTAT_BOOL
+end)
+packed_bool_unlock_menu:add_action("夏季更新", function() -- 夏季更新
+    set_mass_packed_bool(unlock_state, 30355, 30483) --SU20PSTAT_BOOL
+    set_mass_packed_bool(unlock_state, 30227, 30355) --SU20TATTOOSTAT_BOOL
 end)
 
-packed_bool_unlock_menu:add_action("HEIST3TATTOOSTAT_BOOL (赌场抢劫DLC物品)", function() -- 赌场抢劫dlc
-    set_mass_packed_bool(unlock_state, 28355, 28483)
+packed_bool_unlock_menu:add_action("解锁佩里克岛DLC物品", function() -- 佩里克岛抢劫dlc
+    set_mass_packed_bool(unlock_state, 30515, 30707) --HISLANDPSTAT_BOOL 
 end)
 
-packed_bool_unlock_menu:add_action("SU20PSTAT_BOOL (夏季更新)", function() -- 夏季更新
-    set_mass_packed_bool(unlock_state, 30355, 30483)
+packed_bool_unlock_menu:add_action("解锁车友会全部DLC物品", function() -- 车友会dlc
+    set_mass_packed_bool(unlock_state, 31707, 32283) --TUNERPSTAT_BOOL
+
 end)
 
-packed_bool_unlock_menu:add_action("SU20TATTOOSTAT_BOOL (解锁夏季更新DLC物品)", function() -- 夏季更新
-    set_mass_packed_bool(unlock_state, 30227, 30355)
+packed_bool_unlock_menu:add_action("----解锁车友会DLC-奖励解锁", function() -- 车友会内的所有物品
+    set_mass_packed_bool(unlock_state, 31825, 32224)
 end)
 
-packed_bool_unlock_menu:add_action("HISLANDPSTAT_BOOL (解锁佩里克岛DLC物品)", function() -- 佩里克岛抢劫dlc
-    set_mass_packed_bool(unlock_state, 30515, 30707)
+packed_bool_unlock_menu:add_action("----解锁车友会DLC-改车铺1楼游戏机位", function() -- 改车铺1楼游戏机
+    packed_funs.set_packed_bool(31755, true)
 end)
 
-packed_bool_unlock_menu:add_action("TUNERPSTAT_BOOL (解锁车友会DLC物品)", function() -- 车友会dlc
-    set_mass_packed_bool(unlock_state, 31707, 32283)
-end)
-
-packed_bool_unlock_menu:add_action("FIXERPSTAT_BOOL (解锁联系人DLC物品)", function() -- 联系人dlc
+packed_bool_unlock_menu:add_action("FIXERPSTAT_BOOL 解锁联系人DLC物品", function() -- 联系人dlc
     set_mass_packed_bool(unlock_state, 32283, 32411)
+    set_mass_packed_bool(unlock_state, 32411, 32475)
 end)
 
-packed_bool_unlock_menu:add_action("FIXERTATTOOSTAT (解锁联系人DLC物品)", function() -- 联系人dlc
-    set_mass_packed_bool(unlock_state, 32411, 32475)
+packed_bool_unlock_menu:add_action("未知不工作主函数缺少代码",
+    function() -- 未知dlc 阿浩?？内置修改器查询跳过了正好128个bool
+        set_mass_packed_bool(unlock_state, 34123, 34241)
+    end)
+
+packed_bool_unlock_menu:add_action("DLC12022 解锁犯罪帝国物品", function() -- 犯罪帝国dlc
+    set_mass_packed_bool(unlock_state, 34251, 34763)
 end)
 
 packed_bool_unlock_menu:add_action("重新观看动画", function()
@@ -134,28 +139,22 @@ packed_bool_unlock_menu:add_action("重新观看动画", function()
     packed_funs.set_packed_bool(25009, false) -- 竞技场动画2
     packed_funs.set_packed_bool(25010, false) -- 竞技场动画2
 end)
-
 ----------------------------------packed int----------------------------------
 local packed_int_unlock_menu = packed_unlock_menu:add_submenu("Packed int 解锁") -- 二级菜单
-
 -- 冲冲猴旅行家
 packed_int_unlock_menu:add_action("冲冲猴旅行家", function()
     packed_funs.set_packed_int(22063, 20)
 end)
-
 -- 恐霸批发价
 packed_int_unlock_menu:add_action("恐霸批发价", function()
-
     packed_funs.set_packed_int(22050, 5)
 end)
-
 -- 商战黄金奖杯
 packed_int_unlock_menu:add_action("商战黄金奖杯", function()
     if (packed_funs.get_packed_int(22058) < 20) then
         packed_funs.set_packed_int(22058, 20)
     end
 end)
-
 packed_int_unlock_menu:add_action("夜总会保险箱装饰", function()
     packed_funs.set_packed_int(22051, 50) -- 木盒子
     packed_funs.set_packed_int(22052, 100) -- 子弹铁盒
@@ -165,7 +164,6 @@ packed_int_unlock_menu:add_action("夜总会保险箱装饰", function()
     packed_funs.set_packed_int(22056, 40) -- 假钞
     packed_funs.set_packed_int(22057, 10) -- 可卡因
 end)
-
 packed_int_unlock_menu:add_action("设施维修区摆件", function()
     packed_funs.set_packed_int(18982, 3) -- tM02
     packed_funs.set_packed_int(18983, 3) -- 防暴车
@@ -173,7 +171,6 @@ packed_int_unlock_menu:add_action("设施维修区摆件", function()
     packed_funs.set_packed_int(18985, 3) -- 推进者
     packed_funs.set_packed_int(18986, 3) -- 复仇者
 end)
-
 packed_int_unlock_menu:add_action("解锁双动左轮 使用后换占据再次使用", function()
     if (packed_funs.get_packed_int(18981) == 0) then
         packed_funs.set_packed_int(18981, 3) -- 双动左轮跳到最后任务阶段
@@ -183,7 +180,6 @@ packed_int_unlock_menu:add_action("解锁双动左轮 使用后换占据再次�
         -- 换占据后才能触发
     end
 end)
-
 packed_int_unlock_menu:add_action("解锁石斧 使用后换占据再次使用", function()
     if (packed_funs.get_packed_int(7315) == 0) then
         packed_funs.set_packed_int(7315, 5) -- 跳到石斧最后任务阶段
