@@ -111,8 +111,16 @@ packed_bool_unlock_menu:add_action("HISLANDPSTAT_BOOL 解锁佩里克岛DLC物�
     set_mass_packed_bool(unlock_state, 30515, 30707)
 end)
 
-packed_bool_unlock_menu:add_action("TUNERPSTAT_BOOL 解锁车友会DLC物品", function() -- 车友会dlc
+packed_bool_unlock_menu:add_action("TUNERPSTAT_BOOL 解锁车友会全部DLC物品", function() -- 车友会dlc
     set_mass_packed_bool(unlock_state, 31707, 32283)
+end)
+
+packed_bool_unlock_menu:add_action("解锁车友会DLC-奖励解锁", function() -- 车友会内的所有物品
+    set_mass_packed_bool(unlock_state, 31825, 32224)
+end)
+
+packed_bool_unlock_menu:add_action("解锁车友会DLC-改车铺1楼游戏机位", function() -- 改车铺1楼游戏机
+    packed_funs.set_packed_bool(31755,true) 
 end)
 
 packed_bool_unlock_menu:add_action("FIXERPSTAT_BOOL 解锁联系人DLC物品", function() -- 联系人dlc
