@@ -61,66 +61,66 @@ packed_bool_unlock_menu:add_action("DLCBIKEPSTAT_BOOL '(Bikers) ", function() --
     set_mass_packed_bool(unlock_state, 9361, 9553)
 end)
 
-packed_bool_unlock_menu:add_action("DLCGUNPSTAT_BOOL (Import/Export)", function() -- Import/Export
+packed_bool_unlock_menu:add_action("Import/Export", function() -- Import/Export
     set_mass_packed_bool(unlock_state, 15369, 15561)
 end)
 
-packed_bool_unlock_menu:add_action("GUNTATPSTAT_BOOL (Gunrunning)", function() -- Gunrunning
+packed_bool_unlock_menu:add_action("Gunrunning", function() -- Gunrunning
     set_mass_packed_bool(unlock_state, 15562, 15946)
 end)
 
-packed_bool_unlock_menu:add_action("DLCSMUGCHARPSTAT (Smuggler's Run)", function() -- Smuggler's Run
+packed_bool_unlock_menu:add_action("Smuggler's Run", function() -- Smuggler's Run
     set_mass_packed_bool(unlock_state, 15946, 16010)
     packed_funs.set_packed_bool(22069, false); -- cuban800
 end)
 
-packed_bool_unlock_menu:add_action("GANGOPSPSTAT_BOOL (The Doomsday Heist)", function() -- The Doomsday Heist
+packed_bool_unlock_menu:add_action("The Doomsday Heist", function() -- The Doomsday Heist
     set_mass_packed_bool(unlock_state, 18098, 18162)
 end)
 
-packed_bool_unlock_menu:add_action("BUSINESSBATPSTAT_BOOL  (After Hours)", function() -- nightclub
+packed_bool_unlock_menu:add_action("After Hours", function() -- nightclub
     set_mass_packed_bool(unlock_state, 22066, 22194)
     packed_funs.set_packed_bool(22069, false) -- speedo4
 end)
 
-packed_bool_unlock_menu:add_action("ARENAWARSPSTAT_BOOL (Arena War)", function() -- Arena War
+packed_bool_unlock_menu:add_action("Arena War", function() -- Arena War
     set_mass_packed_bool(unlock_state, 24962, 25538)
 end)
 
-packed_bool_unlock_menu:add_action("CASINOPSTAT_BOOL (The Diamond Casino & Resort)", function() -- The Diamond Casino & Resort
+packed_bool_unlock_menu:add_action("The Diamond Casino & Resort", function() -- The Diamond Casino & Resort
     set_mass_packed_bool(unlock_state, 26810, 27258)
 end)
 
-packed_bool_unlock_menu:add_action("CASINOHSTPSTAT_BOOL (The Diamond Casino Heist)", function() -- The Diamond Casino Heist
+packed_bool_unlock_menu:add_action("The Diamond Casino Heist", function() -- The Diamond Casino Heist
     set_mass_packed_bool(unlock_state, 28098, 28354)
-end)
-
-packed_bool_unlock_menu:add_action("HEIST3TATTOOSTAT_BOOL (The Diamond Casino Heist)", function() -- The Diamond Casino Heist
     set_mass_packed_bool(unlock_state, 28355, 28483)
 end)
 
-packed_bool_unlock_menu:add_action("SU20PSTAT_BOOL (Los Santos Summer Special)", function() -- Los Santos Summer Special
+packed_bool_unlock_menu:add_action("Los Santos Summer Special", function() -- Los Santos Summer Special
     set_mass_packed_bool(unlock_state, 30355, 30483)
-end)
-
-packed_bool_unlock_menu:add_action("SU20TATTOOSTAT_BOOL (Los Santos Summer Special)", function() -- Los Santos Summer Special
     set_mass_packed_bool(unlock_state, 30227, 30355)
 end)
 
-packed_bool_unlock_menu:add_action("HISLANDPSTAT_BOOL (The Cayo Perico Heist)", function() -- The Cayo Perico Heist
+packed_bool_unlock_menu:add_action("The Cayo Perico Heist", function() -- The Cayo Perico Heist
     set_mass_packed_bool(unlock_state, 30515, 30707)
 end)
 
-packed_bool_unlock_menu:add_action("TUNERPSTAT_BOOL (Los Santos Tuners)", function() -- Los Santos Tuners
+packed_bool_unlock_menu:add_action("Los Santos Tuners", function() -- Los Santos Tuners
     set_mass_packed_bool(unlock_state, 31707, 32283)
 end)
 
-packed_bool_unlock_menu:add_action("FIXERPSTAT_BOOL (The Contract)", function() -- The Contract
+packed_bool_unlock_menu:add_action("The Contract", function() -- The Contract
     set_mass_packed_bool(unlock_state, 32283, 32411)
+    set_mass_packed_bool(unlock_state, 32411, 32475)
 end)
 
-packed_bool_unlock_menu:add_action("FIXERTATTOOSTAT (The Contract)", function() -- The Contract
-    set_mass_packed_bool(unlock_state, 32411, 32475)
+--packed_bool_unlock_menu:add_action("Unknown",
+--    function() -- Unknown Missing stat128个bool
+--        set_mass_packed_bool(unlock_state, 34123, 34241)
+--    end)
+
+packed_bool_unlock_menu:add_action("The Criminal Enterprises", function() -- The Criminal Enterprises
+    set_mass_packed_bool(unlock_state, 34251, 34763)
 end)
 
 packed_bool_unlock_menu:add_action("Re-watch the dlc animation", function()
